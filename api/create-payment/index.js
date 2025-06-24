@@ -33,9 +33,8 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
-    return res.status(response.status).json(data);
+    res.status(response.status).json(data);
   } catch (error) {
-    console.error("Error:", error);
-    return res.status(500).json({ error: "Error en el servidor" });
+    res.status(500).json({ error: "Error en el servidor", details: error.message });
   }
 }
