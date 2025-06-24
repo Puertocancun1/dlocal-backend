@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       headers: {
         "Content-Type": "application/json",
         "x-login": process.env.DLOCAL_LOGIN,
-        "x-trans-key": process.env.DLOCAL_TRANS_KEY,
+        "x-trans-key": process.env.DLOCAL_TRANS_KEY
       },
       body: JSON.stringify({
         amount,
@@ -19,11 +19,12 @@ export default async function handler(req, res) {
         country,
         payer,
         order_id,
-        payment_method_id,
+        payment_method_id
       }),
     });
 
     const data = await response.json();
+
     return res.status(response.status).json(data);
   } catch (error) {
     console.error("Error:", error);
