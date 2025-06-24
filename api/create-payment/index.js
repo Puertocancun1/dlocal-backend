@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   const { amount, currency, country, payer, order_id, payment_method_id } = req.body;
 
   try {
-    const response = await fetch("https://api.dlocalgo.com/payments", {
+    const response = await fetch("https://sandbox.dlocal.com/secure/payments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
